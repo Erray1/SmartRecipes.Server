@@ -1,0 +1,6 @@
+@SmartRecipes.Server_HostAddress = http://localhost:5071
+
+GET {{SmartRecipes.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

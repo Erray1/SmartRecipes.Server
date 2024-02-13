@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34316.72
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartRecipes.Server", "SmartRecipes.Server.csproj", "{BEA9319E-3C85-450F-92F6-1FABBCF1620B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BEA9319E-3C85-450F-92F6-1FABBCF1620B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEA9319E-3C85-450F-92F6-1FABBCF1620B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEA9319E-3C85-450F-92F6-1FABBCF1620B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEA9319E-3C85-450F-92F6-1FABBCF1620B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {14D97A8E-596A-4A3F-B5B5-C72AF6AF8F9C}
+	EndGlobalSection
+EndGlobal
