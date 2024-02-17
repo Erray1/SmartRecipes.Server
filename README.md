@@ -1,7 +1,7 @@
-# Умная книга рецептов
+# РЈРјРЅР°СЏ РєРЅРёРіР° СЂРµС†РµРїС‚РѕРІ
 
-СПО 1 практическая работа
+РЎРџРћ 1 РїСЂР°РєС‚РёС‡РµСЃРєР°СЏ СЂР°Р±РѕС‚Р°
 
-Материалы: https://drive.google.com/drive/folders/12ORTPFkwQFo-jp9YlFWXEC-ooYi6VNGW?usp=sharing
+РњР°С‚РµСЂРёР°Р»С‹: https://drive.google.com/drive/folders/12ORTPFkwQFo-jp9YlFWXEC-ooYi6VNGW?usp=sharing
 
-Клиентская часть: https://github.com/Erray1/SmartRecipes.Client
+РљР»РёРµРЅС‚СЃРєР°СЏ С‡Р°СЃС‚СЊ: https://github.com/Erray1/SmartRecipes.Client
