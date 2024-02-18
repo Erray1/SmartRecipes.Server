@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using SmartRecipes.Server.DataContext;
+using Microsoft.EntityFrameworkCore;
+using Npgsql.EntityFrameworkCore.PostgreSQL;
 using SmartRecipes.Server.DataContext.Recipes;
 using SmartRecipes.Server.DataContext.Users;
 using SmartRecipes.Server.DataContext.Users.Models;
@@ -12,12 +13,13 @@ public static class DataContextExtensions
     {
         services.AddDbContext<RecipesContext>(options =>
         {
-
+            options.LogTo(Console.WriteLine, new[] { Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId.CommandExecuting });
         });
         return services;
     }
     public static IServiceCollection AddUsersContext(this IServiceCollection services)
-    { 
+    {
+        
         services.AddDbContext<UsersContext>(options => {
             options.LogTo(Console.WriteLine, new[] { Microsoft.EntityFrameworkCore.Diagnostics.RelationalEventId.CommandExecuting });
         });

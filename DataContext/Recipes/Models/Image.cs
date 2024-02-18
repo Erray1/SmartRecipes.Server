@@ -1,10 +1,12 @@
-﻿namespace SmartRecipes.Server.DataContext.Recipes.Models;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace SmartRecipes.Server.DataContext.Recipes.Models;
 
 public sealed class Image
 {
-    public string ID { get; set; } = string.Empty;
-    public string IngredientID { get; set; }
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public string ID { get; set; }
     public Recipe Recipe { get; set; }
-
-    public object ImageData { get; set; } = default!; // Понять, какой тип данных хранить
+    public byte[] ImageData { get; set; }
+    public string ImageName { get; set; }
 }
