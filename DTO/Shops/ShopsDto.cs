@@ -1,6 +1,6 @@
-﻿using SmartRecipes.Server.DataContext.DTO.Abstract;
+﻿using SmartRecipes.Server.DTO;
 
-namespace SmartRecipes.Server.DataContext.DTO.Shops;
+namespace SmartRecipes.Server.DTO.Shops;
 
 public class ShopsDto : DtoBase
 {

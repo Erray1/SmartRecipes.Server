@@ -1,6 +1,4 @@
-﻿using SmartRecipes.Server.DataContext.DTO.Recipes.Abstract;
-
-namespace SmartRecipes.Server.DataContext.DTO.Recipes;
+﻿namespace SmartRecipes.Server.DTO.Recipes;
 
 public class RecipeData : RecipeDataBase
 {

@@ -2,7 +2,7 @@
 
 namespace SmartRecipes.Server.DataContext.Recipes.Models;
 
-public sealed class Category
+public sealed class Category : EntityModelBase
 {
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public string ID { get; set; }

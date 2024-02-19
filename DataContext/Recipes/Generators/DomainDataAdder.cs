@@ -29,6 +29,7 @@ public sealed class DomainDataAdder : IDomainDataAdder
         Ingredient newEntity = new()
         {
             IngredientName = model.Name,
+            Price = model.Price
         };
         await db.AddAsync(newEntity);
         int affected = await db.SaveChangesAsync();
@@ -60,7 +61,7 @@ public sealed class DomainDataAdder : IDomainDataAdder
         await db.AddAsync(newRecipe);
 
         foundCategory.RecipesWhereUsed.Add(newRecipe);
-        db.Categories.Update(foundCategory);
+        // db.Categories.Update(foundCategory);
         int affected = await db.SaveChangesAsync();
         if (affected == 0) return (false, "Ошибка при обновлении БД");
 

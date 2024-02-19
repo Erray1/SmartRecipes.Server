@@ -19,6 +19,7 @@ public class RecipesContext : DbContext
     public virtual DbSet<Ingredient> Ingredients { get; set; }
     public virtual DbSet<Shop> Shops { get; set; }
     public virtual DbSet<Recipe> Recipes { get; set; }
+    public virtual DbSet<IngredientPriceForShop> IngredientPrices { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -69,7 +70,11 @@ public class RecipesContext : DbContext
             .HasKey(e => e.ID);
         modelBuilder.Entity<Shop>()
             .HasMany(e => e.AvailableIngredients)
-            .WithMany(e => e.ShopsWhereAvailable);
+            .WithMany(e => e.ShopsWhereAvailable)
+            .UsingEntity<IngredientPriceForShop>(
+                l => l.HasOne<Ingredient>().WithMany(e => e.IngredientPrices).HasForeignKey(e => e.ShopID),
+                r => r.HasOne<Shop>().WithMany(e => e.IngredientPrices).HasForeignKey(e => e.IngredientID),
+                j => j.Property(e => e.Price).HasDefaultValueSql("Проставьте тип мужики...."));
         modelBuilder.Entity<Shop>()
             .Property(e => e.Name)
             .HasMaxLength(30)
@@ -84,7 +89,7 @@ public class RecipesContext : DbContext
         // Recipes
 
         modelBuilder.Entity<Recipe>()
-            .HasKey(e => e.RecipeID);
+            .HasKey(e => e.ID);
 
         modelBuilder.Entity<Recipe>()
             .HasOne(e => e.RecipeImage)

@@ -12,6 +12,6 @@ public sealed class CreateShopModel
     [MaxLength(200, ErrorMessage = "Длина адреса до 200 символов")]
     public string Address {  get; set; }
     [Required]  
-    public List<string> AvalableIngredientNames {  get; set; }
+    public Dictionary<string, int> AvalableIngredients {  get; set; }
 
 }

@@ -2,7 +2,7 @@
 
 namespace SmartRecipes.Server.DataContext.Recipes.Models;
 
-public sealed class Image
+public sealed class Image : EntityModelBase
 {
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public string ID { get; set; }
