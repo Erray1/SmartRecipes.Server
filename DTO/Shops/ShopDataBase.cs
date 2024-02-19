@@ -1,8 +1,6 @@
-﻿using SmartRecipes.Server.DataContext.DTO.Shops;
+﻿namespace SmartRecipes.Server.DTO.Shops;
 
-namespace SmartRecipes.Server.DataContext.DTO.Shops.Abstract;
-
-public abstract class ShopDataBase
+public abstract class ShopDataBase : DataBase
 {
     public int TimeToTravelSeconds { get; set; }
     public string Name { get; set; }

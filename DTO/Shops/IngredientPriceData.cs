@@ -1,4 +1,4 @@
-﻿namespace SmartRecipes.Server.DataContext.DTO.Shops;
+﻿namespace SmartRecipes.Server.DTO.Shops;
 
 public class IngredientPriceData
 {

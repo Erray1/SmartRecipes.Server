@@ -7,4 +7,5 @@ public class User : IdentityUser
 {
     public ICollection<string> VisitedRecipesIDs { get; } = new List<string>();
     public ICollection<string> FavouriteRecipesIDs { get; } = new List<string>();
+    public string Address { get; set; }
 }

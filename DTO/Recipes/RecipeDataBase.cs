@@ -1,6 +1,6 @@
-﻿namespace SmartRecipes.Server.DataContext.DTO.Recipes.Abstract;
+﻿namespace SmartRecipes.Server.DTO.Recipes;
 
-public abstract class RecipeDataBase
+public abstract class RecipeDataBase : DataBase
 {
     public string ID { get; set; }
     public string Name { get; set; }

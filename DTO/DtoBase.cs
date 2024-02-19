@@ -1,4 +1,4 @@
-﻿namespace SmartRecipes.Server.DataContext.DTO.Abstract;
+﻿namespace SmartRecipes.Server.DTO;
 
 public abstract class DtoBase
 {

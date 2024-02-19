@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using SmartRecipes.Server.DataContext.Users.Models;
 
+using SmartRecipes.Server.HTTPModels.Accounts;
+
 namespace SmartRecipes.Server.Controllers;
 
 [Route("api/[controller]")]
@@ -18,17 +20,17 @@ public class RegisterController : ControllerBase
     [HttpPost]
     public async Task<ActionResult> Register([FromBody] RegisterModel model)
     {
-        User newUser = new User { UserName = model.Name, Email = model.Email };
+        User newUser = new() { Email = model.Email, Address = model.Address };
 
         var result = await userManager.CreateAsync(newUser, model.Password!);
 
         if (!result.Succeeded)
         {
-            var errors = result.Errors.Select(x => x.Description);
+            var errors = result.Errors.Select(x => x.Description).ToList();
 
-            return Ok(new RegisterResult { Succesful = false, Errors = errors });
+            return BadRequest(new RegisterResult { IsSuccesful = false, Errors = errors });
         }
-        else return Ok(new RegisterResult { Succesful = true });
+        else return Ok(new RegisterResult { IsSuccesful = true });
     }
 }
 

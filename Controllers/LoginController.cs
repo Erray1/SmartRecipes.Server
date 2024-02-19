@@ -1,11 +1,12 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using SmartRecipes.Server.DataContext.Users.Models;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+
+using SmartRecipes.Server.HTTPModels.Accounts;
 
 namespace SmartRecipes.Server.Controllers;
 [Route("api/[controller]")]
@@ -23,16 +24,16 @@ public class LoginController : ControllerBase
     [HttpPost]
     public async Task<ActionResult> Login([FromBody] LoginModel request)
     {
-        var result = await signInManager.PasswordSignInAsync(request.Name, request.Password, false, false);
+        var result = await signInManager.PasswordSignInAsync(request.Email, request.Password, false, false);
 
-        if (!result.Succeeded) return BadRequest(new LoginResult { Succesful = false, Error = "Адрес почты или пароль неверны" });
+        if (!result.Succeeded) return BadRequest(new LoginResult { IsSuccesful = false, Errors = new() { "Адрес почты или пароль неверны" } });
 
         var claims = new[]
         {
-            new Claim(ClaimTypes.Name, "EXAMPLE")
+            new Claim(ClaimTypes.Email, "example@example.com")
         };
 
-        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["JWTSecurityKey"]));
+        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["JWTSecurityKey"]!));
         var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
         var expiry = DateTime.Now.AddDays(Convert.ToInt32(config["JWTExpiryInDays"]));
 
@@ -42,7 +43,7 @@ public class LoginController : ControllerBase
             claims,
             expires: expiry,
             signingCredentials: creds);
-        return Ok(new LoginResult { Succesful = true, Token = new JwtSecurityTokenHandler().WriteToken(token) });
+        return Ok(new LoginResult { IsSuccesful = true, Token = new JwtSecurityTokenHandler().WriteToken(token) });
     }
 }
 
