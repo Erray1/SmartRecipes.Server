@@ -92,12 +92,17 @@ public class RecipesContext : DbContext
             .HasKey(e => e.ID);
 
         modelBuilder.Entity<Recipe>()
-            .HasOne(e => e.RecipeImage)
-            .WithOne(e => e.Recipe);
+            .HasMany(e => e.Ingredients)
+            .WithMany(e => e.RecipesWhereUsed)
+            .UsingEntity<IngredientAmountForRecipe>(
+                l => l.HasOne<Ingredient>().WithMany(e => e.IngredientAmounts).HasForeignKey(e => e.RecipeID),
+                r => r.HasOne<Recipe>().WithMany(e => e.IngredientAmounts).HasForeignKey(e => e.IngredientID),
+                j => j.Property(e => e.Amount).HasDefaultValueSql("0 кг")
+            );
 
         modelBuilder.Entity<Recipe>()
-            .HasMany(e => e.Ingredients)
-            .WithMany(e => e.RecipesWhereUsed);
+            .HasOne(e => e.RecipeImage)
+            .WithOne(e => e.Recipe);
 
         modelBuilder.Entity<Recipe>()
             .Property(e => e.Rating)

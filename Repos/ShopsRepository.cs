@@ -11,36 +11,12 @@ namespace SmartRecipes.Server.Repos;
 public sealed class ShopsRepository : IShopsRepository
 {
     private readonly RecipesContext db;
-    private readonly UsersContext usersDb;
-    public ShopsRepository(RecipesContext db, UsersContext userDb)
+    public ShopsRepository(RecipesContext db)
     {
         this.db = db;
-        this.usersDb = userDb;
     }
-    public async Task<ShopsDto> GetShopsDataFor(string recipeID, IEnumerable<string> notPresentIngredientIds, string? shopsFilter, string userName)
+    public async Task<ShopsDto> GetShopsDataForAsync(string recipeID, IEnumerable<string> notPresentIngredientIds, string? shopsFilter, string? userAddress)
     {
-        if (notPresentIngredientIds.Count() == 0)
-        {
-            return new()
-            {
-                IsSuccesful = true,
-                Errors = new() { "У вас и так всё есть" },
-                Content = new()
-            };
-        }
-
-        string? userAddress = (await usersDb.Users.FindAsync(userName))?.Address;
-
-        if (userAddress is null)
-        {
-            return new()
-            {
-                IsSuccesful = false,
-                Errors = new() { "Не найден пользователь с данным именем" },
-                Content = new()
-            };
-        }
-
         Recipe? recipeFound = await db.Recipes.FindAsync(recipeID);
         if (recipeFound is null) {
             return new()

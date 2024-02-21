@@ -1,5 +1,5 @@
 ﻿namespace SmartRecipes.Server.DTO.Recipes;
-public class RecipeSearchData : RecipeDataBase
+public class RecipePreviewData : RecipeDataBase
 {
     public int IngedientsCount { get; set; }
     public float TimeToCook { get; set; }
