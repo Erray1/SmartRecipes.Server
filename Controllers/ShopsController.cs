@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SmartRecipes.Server.Repos;
 
 namespace SmartRecipes.Server.Controllers;
 
@@ -7,10 +8,20 @@ namespace SmartRecipes.Server.Controllers;
 [ApiController]
 public class ShopsController : ControllerBase
 {
-    [HttpGet("{id}")]
-    public async Task<IActionResult> GetShopsAndIngredients(string recipeId)
+    private readonly IShopsRepository repo;
+    public ShopsController(IShopsRepository repo)
     {
-        return BadRequest();
+        this.repo = repo;
+    }
+    [HttpGet("{recipeId}")]
+    public async Task<IActionResult> GetShopsAndIngredients(string recipeId, [FromQuery]string notPresentIngredients, [FromQuery]string? filter, [FromQuery]string userAddress)
+    {
+        var data = await repo.GetShopsDataForAsync(recipeId, notPresentIngredients.Split("|"), filter, userAddress);
+        if (!data.IsSuccesful)
+        {
+            return BadRequest(data);
+        }
+        return Ok(data);
     }
 }
 

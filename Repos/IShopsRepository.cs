@@ -4,5 +4,5 @@ namespace SmartRecipes.Server.Repos;
 
 public interface IShopsRepository
 {
-    public Task<ShopsDto> GetShopsDataFor(string recipeID, IEnumerable<string> notPresentIngredientIds, string? shopsFilter, string userName);
+    public Task<ShopsDto> GetShopsDataForAsync(string recipeID, IEnumerable<string> notPresentIngredientIds, string? shopsFilter, string userAddress);
 }

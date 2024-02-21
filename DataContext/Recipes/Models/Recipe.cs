@@ -8,10 +8,12 @@ public sealed class Recipe : EntityModelBase
     public string ID { get; set; }
     public Image RecipeImage { get; set; } = null!;
     public string RecipeName { get; set; } = null!;
-    public DateOnly CreationDate { get; set; }
+    public DateTime CreationTime { get; set; }
     public Category Category { get; set; } = null!;
     public string RecipeDescription { get; set; } = null!;
     public ICollection<Ingredient> Ingredients { get; set; } = new List<Ingredient>();
+    public ICollection<IngredientAmountForRecipe> IngredientAmounts { get; set; } = new List<IngredientAmountForRecipe>();
     public Dictionary<string, int> Rating { get; set; } = new() { { "likes", 0 }, { "dislikes", 0 } };
     public float TimeToCook { get; set; }
+    public int TimesVisited { get; set; } = 0;
 }

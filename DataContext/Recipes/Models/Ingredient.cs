@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using Microsoft.Identity.Client;
+using System.ComponentModel.DataAnnotations.Schema;
 
 
 namespace SmartRecipes.Server.DataContext.Recipes.Models;
@@ -12,4 +13,5 @@ public sealed class Ingredient : EntityModelBase
     public ICollection<Shop> ShopsWhereAvailable { get; set; } = new List<Shop>();
     public ICollection<IngredientPriceForShop> IngredientPrices { get; set; } = new List<IngredientPriceForShop>();
     public ICollection<Recipe> RecipesWhereUsed { get; } = new List<Recipe>();
+    public ICollection<IngredientAmountForRecipe> IngredientAmounts { get; set; } = new List<IngredientAmountForRecipe>();
 }

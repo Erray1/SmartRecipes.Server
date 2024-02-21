@@ -42,7 +42,7 @@ public class CreateController : ControllerBase
     [HttpPost("shop")]
     public async Task<IActionResult> CreateShop([FromBody] CreateShopModel? model)
     {
-        if (model is null) return BadRequest("Укажите данные категории в Body");
+        if (model is null) return BadRequest("Укажите данные магазина в Body");
         if (!ModelState.IsValid) return BadRequest(ModelState);
         (bool succesful, string? error) = await domainDataAdder.AddShop(model);
 
@@ -52,7 +52,7 @@ public class CreateController : ControllerBase
     [HttpPost("recipe")]
     public async Task<IActionResult> CreateRecipe([FromBody] CreateRecipeModel? model)
     {
-        if (model is null) return BadRequest("Укажите данные категории в Body");
+        if (model is null) return BadRequest("Укажите данные рецепта в Body");
         if (!ModelState.IsValid) return BadRequest(ModelState);
         (bool succesful, string? error) = await domainDataAdder.AddRecipe(model);
 

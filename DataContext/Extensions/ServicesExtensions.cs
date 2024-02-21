@@ -7,7 +7,7 @@ using SmartRecipes.Server.DataContext.Users.Models;
 
 namespace SmartRecipes.Server.DataContext.Extensions;
 
-public static class DataContextExtensions
+public static partial class ServicesExtensions
 {
     public static IServiceCollection AddRecipesContext(this IServiceCollection services)
     {

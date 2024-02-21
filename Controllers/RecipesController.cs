@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SmartRecipes.Server.Repos;
 
 namespace SmartRecipes.Server.Controllers;
 
@@ -8,38 +9,82 @@ namespace SmartRecipes.Server.Controllers;
 [ApiController]
 public class RecipesController : ControllerBase
 {
-    [HttpGet("get-popular")]
-    public async Task<IActionResult> GetPopularRecipes()
+    private readonly IRecipesRepository repo;
+    public RecipesController(IRecipesRepository repo)
     {
-        
-        return BadRequest();
+        this.repo = repo;
     }
+    [HttpGet("get-popular")]
+    [ProducesResponseType(200)]
+    [ProducesResponseType(404)]
+    public async Task<IActionResult> GetPopularRecipes([FromQuery] int itemsPerPage, [FromQuery] int currentPage, [FromQuery] string? period)
+    {
+        var data = await repo.GetPopularRecipesPagedAsync(itemsPerPage, currentPage, period);
+        if (!data.IsSuccesful)
+        {
+            return NotFound(data);
+        }
+        return Ok(data);
+    }
+
 
     [HttpGet("get-recommendations")]
-    public async Task<IActionResult> GetRecommendedRecipes()
+    [ProducesResponseType(200)]
+    [ProducesResponseType(400)]
+    public async Task<IActionResult> GetRecommendedRecipes([FromQuery] int itemsPerPage, [FromQuery] int currentPage)
     {
-        return BadRequest();
+        return StatusCode(StatusCodes.Status501NotImplemented);
     }
 
+
     [HttpGet("get-latest")]
-    public async Task<IActionResult> GetLatestRecipes()
+    [ProducesResponseType(200)]
+    [ProducesResponseType(404)]
+    public async Task<IActionResult> GetLatestRecipes([FromQuery] string IDs)
     {
-        return BadRequest();
+        var data = await repo.GetRecipesByIDAsync(IDs.Split("|"));
+        if (!data.IsSuccesful)
+        {
+            return NotFound(data);
+        }
+        return Ok(data);
     }
+
     [HttpGet("get-list-shortened")]
-    public async Task<IActionResult> GetPreviewRecipes()
+    [ProducesResponseType(200)]
+    [ProducesResponseType(404)]
+    public IActionResult SearchShortenedRecipes([FromQuery] int itemsCount, [FromQuery] string search)
     {
-        return BadRequest();
+        var data = repo.SearchFirstRecipes(itemsCount, search);
+        if (!data.IsSuccesful)
+        {
+            return NotFound(data);
+        }
+        return Ok(data);
     }
     [HttpGet("get-list")]
-    public async Task<IActionResult> GetSearchRecipes()
+    [ProducesResponseType(200)]
+    [ProducesResponseType(400)]
+    public IActionResult SearchRecipes([FromQuery] int itemsPerPage, [FromQuery] int currentPage, [FromQuery] string search)
     {
-        return BadRequest();
+        var data = repo.SearchRecipesPaged(itemsPerPage, currentPage, search);
+        if (!data.IsSuccesful)
+        {
+            return NotFound(data);
+        }
+        return Ok(data);
     }
-    [HttpGet("{id}")]
-    public async Task<IActionResult> GetRecipe(string id)
+    [HttpGet("{recipeId}")]
+    [ProducesResponseType(200)]
+    [ProducesResponseType(400)]
+    public async Task<IActionResult> GetRecipe(string recipeId)
     {
-        return BadRequest();
+        var data = await repo.GetRecipeByIDAsync(recipeId);
+        if (!data.IsSuccesful)
+        {
+            return NotFound(data);
+        }
+        return Ok(data);
     }
 }
 
