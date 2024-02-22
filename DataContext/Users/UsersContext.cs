@@ -14,17 +14,12 @@ public class  UsersContext : IdentityDbContext<User>
     {
 
     }
-    private IConfiguration configuration;
-    public UsersContext(IConfiguration configuration)
-    {
-        this.configuration = configuration;
-    }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         if (optionsBuilder.IsConfigured) return;
 
-        optionsBuilder.UseNpgsql(configuration.GetConnectionString("WebApiUsersDatabase"));
+        base.OnConfiguring(optionsBuilder);
 
     }
 

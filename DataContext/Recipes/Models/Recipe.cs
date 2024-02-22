@@ -6,7 +6,7 @@ public sealed class Recipe : EntityModelBase
 {
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public string ID { get; set; }
-    public Image RecipeImage { get; set; } = null!;
+    public Image? RecipeImage { get; set; }
     public string RecipeName { get; set; } = null!;
     public DateTime CreationTime { get; set; }
     public Category Category { get; set; } = null!;
