@@ -2,17 +2,13 @@
 using System.Text.Json;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using SmartRecipes.Server.DataContext.Recipes.Models;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace SmartRecipes.Server.DataContext.Recipes;
 
 public class RecipesContext : DbContext
 {
     public RecipesContext() { }
-    private IConfiguration configuration;
-    public RecipesContext(IConfiguration configuration)
-    {
-        this.configuration = configuration;
-    }
     public RecipesContext(DbContextOptions<RecipesContext> options) : base(options) { }
     public virtual DbSet<Category> Categories { get; set; }
     public virtual DbSet<Image> Images { get; set; }
@@ -20,13 +16,12 @@ public class RecipesContext : DbContext
     public virtual DbSet<Shop> Shops { get; set; }
     public virtual DbSet<Recipe> Recipes { get; set; }
     public virtual DbSet<IngredientPriceForShop> IngredientPrices { get; set; }
+    public virtual DbSet<IngredientAmountForRecipe> IngredientAmounts { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         if (optionsBuilder.IsConfigured) return;
-
-        optionsBuilder.UseNpgsql(configuration.GetConnectionString("WebApiRecipesDatabase"));
-
+        base.OnConfiguring(optionsBuilder);
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -74,7 +69,7 @@ public class RecipesContext : DbContext
             .UsingEntity<IngredientPriceForShop>(
                 l => l.HasOne<Ingredient>().WithMany(e => e.IngredientPrices).HasForeignKey(e => e.ShopID),
                 r => r.HasOne<Shop>().WithMany(e => e.IngredientPrices).HasForeignKey(e => e.IngredientID),
-                j => j.Property(e => e.Price).HasDefaultValueSql("Проставьте тип мужики...."));
+                j => j.Property(e => e.Price).HasDefaultValueSql("0")); // Проставить тип
         modelBuilder.Entity<Shop>()
             .Property(e => e.Name)
             .HasMaxLength(30)
@@ -91,6 +86,7 @@ public class RecipesContext : DbContext
         modelBuilder.Entity<Recipe>()
             .HasKey(e => e.ID);
 
+
         modelBuilder.Entity<Recipe>()
             .HasMany(e => e.Ingredients)
             .WithMany(e => e.RecipesWhereUsed)
@@ -102,7 +98,8 @@ public class RecipesContext : DbContext
 
         modelBuilder.Entity<Recipe>()
             .HasOne(e => e.RecipeImage)
-            .WithOne(e => e.Recipe);
+            .WithOne(e => e.Recipe)
+            .HasForeignKey<Image>();
 
         modelBuilder.Entity<Recipe>()
             .Property(e => e.Rating)

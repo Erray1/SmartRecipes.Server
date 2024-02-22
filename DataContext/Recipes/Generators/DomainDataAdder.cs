@@ -58,12 +58,21 @@ public sealed class DomainDataAdder : IDomainDataAdder
                     .ToListAsync(),
             RecipeImage = foundImage,
         };
-        await db.AddAsync(newRecipe);
+        await db.Recipes.AddAsync(newRecipe);
+
+        await db.IngredientAmounts
+            .AddRangeAsync(model.Ingredients
+                .Select(x => new IngredientAmountForRecipe()
+                {
+                    IngredientID = db.Ingredients.FirstOrDefault(y => y.IngredientName == x.Key)?.ID ?? "0",
+                    RecipeID = newRecipe.ID,
+                    Amount = x.Value
+                }));
 
         foundCategory.RecipesWhereUsed.Add(newRecipe);
         // db.Categories.Update(foundCategory);
         int affected = await db.SaveChangesAsync();
-        if (affected == 0) return (false, "Ошибка при обновлении БД");
+        if (affected == 0) return (false, "Ошибка при обновлении базы данных");
 
         return (true, null);
 
@@ -72,7 +81,7 @@ public sealed class DomainDataAdder : IDomainDataAdder
     public async Task<(bool, string?)> AddShop(CreateShopModel model)
     {
         var notExistingIngredients = db.Ingredients
-             .Where(e => !model.AvalableIngredientNames
+             .Where(e => !model.AvalableIngredients.Keys
               .Contains(e.IngredientName));
         if (notExistingIngredients.Count() != 0)
         {
@@ -81,7 +90,7 @@ public sealed class DomainDataAdder : IDomainDataAdder
         }
 
         List<Ingredient> existingIngredients = await db.Ingredients
-            .Where(e => model.AvalableIngredientNames
+            .Where(e => model.AvalableIngredients.Keys
             .Contains(e.IngredientName))
             .ToListAsync();
 
@@ -89,12 +98,20 @@ public sealed class DomainDataAdder : IDomainDataAdder
         {
             Name = model.Name,
             Address = model.Address,
-            AvailableIngredients = existingIngredients
+            AvailableIngredients = existingIngredients,
         };
 
         await db.Shops.AddAsync(newShop);
 
-        for(int i = 0; i < existingIngredients.Count; i++)
+        await db.IngredientPrices.AddRangeAsync(newShop.AvailableIngredients
+            .Select(x => new IngredientPriceForShop()
+            {
+                IngredientID = x.ID,
+                Price = model.AvalableIngredients[x.IngredientName],
+                ShopID = newShop.ID
+            }));
+
+        for (int i = 0; i < existingIngredients.Count; i++)
         {
             existingIngredients[i].ShopsWhereAvailable.Add(newShop);
         }
