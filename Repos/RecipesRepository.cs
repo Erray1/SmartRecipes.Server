@@ -37,7 +37,7 @@ public sealed class RecipesRepository : IRecipesRepository
         return new()
         {
             IsSuccesful = true,
-            Content = recipesSelected.Select(x => (RecipePreviewData)RecipesContentWorker.ToDTO(x, RecipeDTOTypes.Preview)).ToList()
+            Content = recipesSelected.Select(x => RecipesDTOMapper.ToDTOPreview(x)).ToList()
         };
     }
 
@@ -69,7 +69,7 @@ public sealed class RecipesRepository : IRecipesRepository
         return new()
         {
             IsSuccesful = true,
-            Content = (RecipeData)RecipesContentWorker.ToDTO(recipeFound, RecipeDTOTypes.Full)
+            Content = RecipesDTOMapper.ToDTOFull(recipeFound)
         };
     }
 
@@ -89,14 +89,14 @@ public sealed class RecipesRepository : IRecipesRepository
         return new()
         {
             IsSuccesful = true,
-            Content = recipesFound.Select(x => (RecipeShortenedData)RecipesContentWorker.ToDTO(x, RecipeDTOTypes.Shortened)).ToList()
+            Content = recipesFound.Select(x => RecipesDTOMapper.ToDTOShortened(x)).ToList()
         };
     }
 
-    public RecipeListDto<RecipeShortenedData> SearchFirstRecipes(int itemsCount, string searchToken)
+    public RecipeListDto<RecipeShortenedData> SearchFirstRecipes(int itemsCount, string searchString)
     {
         var recipesSelected = searchEngine
-            .Search(db.Recipes, SearchTypes.Name, searchToken.Split(" "))
+            .Search(db.Recipes, SearchProperties.Name, searchString.Split(" "))
             .Take(itemsCount);
 
         if (recipesSelected is null || recipesSelected.Count() == 0)
@@ -111,14 +111,14 @@ public sealed class RecipesRepository : IRecipesRepository
         return new()
         {
             IsSuccesful = true,
-            Content = recipesSelected.Select(x => (RecipeShortenedData)RecipesContentWorker.ToDTO(x, RecipeDTOTypes.Shortened)).ToList()
+            Content = recipesSelected.Select(x => RecipesDTOMapper.ToDTOShortened(x)).ToList()
         };
     }
 
-    public RecipeListDto<RecipePreviewData> SearchRecipesPaged(int itemsPerPage, int currentPage, string searchToken)
+    public RecipeListDto<RecipePreviewData> SearchRecipesPaged(int itemsPerPage, int currentPage, string searchString)
     {
         var recipesSelected = searchEngine
-            .Search(db.Recipes, SearchTypes.Name, searchToken.Split(" "))
+            .Search(db.Recipes, SearchProperties.Name, searchString.Split(" "))
             .Skip((currentPage - 1) * itemsPerPage)
             .Take(itemsPerPage);
 
@@ -134,7 +134,7 @@ public sealed class RecipesRepository : IRecipesRepository
         return new()
         {
             IsSuccesful = true,
-            Content = recipesSelected.Select(x => (RecipePreviewData)RecipesContentWorker.ToDTO(x, RecipeDTOTypes.Preview)).ToList()
+            Content = recipesSelected.Select(x => RecipesDTOMapper.ToDTOPreview(x)).ToList()
         };
     }
 }

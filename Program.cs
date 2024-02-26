@@ -1,10 +1,10 @@
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
 using SmartRecipes.Server.DataContext.Extensions;
 using SmartRecipes.Server.Repos.Extensions;
 using SmartRecipes.Server.SearchEngines;
 using SmartRecipes.Server.Services.Rating;
-using System.Text;
+using SmartRecipes.Server.Services.Recomendations;
+using SmartRecipes.Server.BuilderExtensions;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,21 +19,10 @@ builder.Services.AddUsersContext(builder.Configuration);
 builder.Services.AddRepositories();
 builder.Services.AddScoped<ISearchable, SimpleSearch>();
 builder.Services.AddScoped<RatingService>();
+builder.Services.AddScoped<RecomendationsService>();
 
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options =>
-    {
-        options.TokenValidationParameters = new()
-        {
-            ValidateIssuer = true,
-            ValidateAudience = true,
-            ValidateLifetime = true,
-            ValidateIssuerSigningKey = true,
-            ValidIssuer = builder.Configuration["JWTIssuer"],
-            ValidAudience = builder.Configuration["JWTAudience"],
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWTSecurityKey"]!))
-        };
-    });
+builder.Services.AddJWTAuthentificationAndAuthorization(builder.Configuration);
+
 
 var app = builder.Build();
 
@@ -51,4 +40,4 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-await app.RunAsync();
+app.Run();

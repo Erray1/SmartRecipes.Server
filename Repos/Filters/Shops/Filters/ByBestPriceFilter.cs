@@ -7,8 +7,8 @@ namespace SmartRecipes.Server.Repos.Filters.Shops.Filters;
 
 public class ByBestPriceFilter : IFilterable
 {
-    public IEnumerable<Tout> Filter<Tout>(IQueryable<Shop> query, IEnumerable<string> ingredientsToBuy) where Tout : DataBase
+    public IEnumerable<ShopData> Filter(IQueryable<Shop> query, IEnumerable<string> ingredientsToBuy)
     {
-        return Enumerable.Empty<Tout>();
+        throw new NotImplementedException();
     }
 }

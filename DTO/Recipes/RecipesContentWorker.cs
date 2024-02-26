@@ -2,48 +2,47 @@
 
 namespace SmartRecipes.Server.DTO.Recipes;
 
-public static class RecipesContentWorker
+public static class RecipesDTOMapper
 {
-    public static RecipeDataBase ToDTO(Recipe recipe, RecipeDTOTypes dtoType)
+    public static RecipeShortenedData ToDTOShortened(Recipe recipe)
     {
-        switch (dtoType)
+        return new RecipeShortenedData
         {
-            case RecipeDTOTypes.Shortened:
-                return new RecipeShortenedData
-                {
-                    ID = recipe.ID,
-                    Image = recipe.RecipeImage.ImageData,
-                    Name = recipe.RecipeName
-                };
-            case RecipeDTOTypes.Preview:
-                return new RecipePreviewData
-                {
-                    ID = recipe.ID,
-                    Image = recipe.RecipeImage.ImageData,
-                    IngedientsCount = recipe.Ingredients.Count(),
-                    Name = recipe.RecipeName,
-                    Rating = recipe.Rating,
-                    TimeToCook = recipe.TimeToCook
-                };
-            case RecipeDTOTypes.Full:
-                return new RecipeData
-                {
-                    ID = recipe.ID,
-                    Image = recipe.RecipeImage.ImageData,
-                    IngedientsCount = recipe.Ingredients.Count(),
-                    Name = recipe.RecipeName,
-                    Rating = recipe.Rating,
-                    TimeToCook = recipe.TimeToCook,
-                    Description = recipe.RecipeDescription,
-                    Ingredients = recipe.Ingredients.Select(x => new IngredientAmountData
-                    {
-                        ID = x.ID,
-                        Name = x.IngredientName,
-                        Amount = x.IngredientAmounts.Single(e => e.RecipeID == recipe.ID).Amount
-                    }).ToList()
-                };
-        }
-        return null!;
+            ID = recipe.ID,
+            Image = recipe.RecipeImage.ImageData,
+            Name = recipe.RecipeName
+        };
+    }
+    public static RecipePreviewData ToDTOPreview(Recipe recipe)
+    {
+        return new RecipePreviewData
+        {
+            ID = recipe.ID,
+            Image = recipe.RecipeImage.ImageData,
+            IngedientsCount = recipe.Ingredients.Count(),
+            Name = recipe.RecipeName,
+            Rating = recipe.Rating,
+            TimeToCook = recipe.TimeToCook
+        };
+    }
+    public static RecipeData ToDTOFull(Recipe recipe)
+    {
+        return new RecipeData
+        {
+            ID = recipe.ID,
+            Image = recipe.RecipeImage.ImageData,
+            IngedientsCount = recipe.Ingredients.Count(),
+            Name = recipe.RecipeName,
+            Rating = recipe.Rating,
+            TimeToCook = recipe.TimeToCook,
+            Description = recipe.RecipeDescription,
+            Ingredients = recipe.Ingredients.Select(x => new IngredientAmountData
+            {
+                ID = x.ID,
+                Name = x.IngredientName,
+                Amount = x.IngredientAmounts.Single(e => e.RecipeID == recipe.ID).Amount
+            }).ToList()
+        };
     }
 }
 

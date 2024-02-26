@@ -1,26 +1,41 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SmartRecipes.Server.DataContext.Recipes.Models;
+using System.Linq.Expressions;
+using System.Text;
 
 namespace SmartRecipes.Server.SearchEngines;
 
 public class SimpleSearch : ISearchable
 {
-    private IQueryable<Recipe> searchByName(DbSet<Recipe> recipes, string strippedSearchField)
+    private static IEnumerable<string> getSearchedValues(Recipe recipe, SearchProperties searchPreperty)
     {
-        return recipes.Where(x => strippedSearchField.Contains(x.RecipeName));
-    }
-    public IQueryable<Recipe> Search(DbSet<Recipe> recipes, SearchTypes searchType, string[] searchTokens)
-    {
-        switch (searchType)
+        switch (searchPreperty)
         {
-            // Пока реализован только писк по имени
-            case SearchTypes.NameAndDescription:
-            case SearchTypes.Description:
-            case SearchTypes.Name:
-                var strippedSearchField = String.Join(" ", searchTokens);
-                return searchByName(recipes, strippedSearchField);
-                
-        }
-        throw new ArgumentException("Не введён тип поиска");
+            case SearchProperties.Name:
+                return recipe.RecipeName.Split(" ");
+            case SearchProperties.Description:
+                return recipe.RecipeDescription.Split(" ");
+            case SearchProperties.NameAndDescription:
+                return (recipe.RecipeName + recipe.RecipeDescription).Split(" ");
+            default:
+                throw new ArgumentException("Неверный searchType");
+        };
+    }
+
+    private static int getTokensHit(Recipe recipe, SearchProperties searchProperty, IEnumerable<string> searchTokens)
+    {
+        return getSearchedValues(recipe, searchProperty).Intersect(searchTokens).Count();
+    }
+
+    public IQueryable<Recipe> Search(DbSet<Recipe> recipes, SearchProperties searchProperty, IEnumerable<string> searchTokens)
+    {
+        var a = recipes.Select(x => getSearchedValues(x, searchProperty));
+        return recipes
+            .Where(x => getSearchedValues(x, searchProperty)
+                .Intersect(searchTokens)
+                .Count() >=
+                searchTokens
+                .Count() / 2)
+            .OrderByDescending(x => getTokensHit(x, searchProperty, searchTokens));
     }
 }

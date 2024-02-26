@@ -1,6 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SmartRecipes.Server.Repos;
+using SmartRecipes.Server.Services;
+using SmartRecipes.Server.Services.Recomendations;
+using System.Security.Claims;
 
 namespace SmartRecipes.Server.Controllers;
 
@@ -31,8 +35,12 @@ public class RecipesController : ControllerBase
     [HttpGet("get-recommendations")]
     [ProducesResponseType(200)]
     [ProducesResponseType(400)]
-    public async Task<IActionResult> GetRecommendedRecipes([FromQuery] int itemsPerPage, [FromQuery] int currentPage)
+    [Authorize]
+    public async Task<IActionResult> GetRecommendedRecipes(RecomendationsService recs)
     {
+        string? userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+        var data = recs.GetRecomendationsPagedAsync(userId!, Convert.ToInt32(Request.Query["itemsPerPage"]), Convert.ToInt32(Request.Query["currentPage"]));
         return StatusCode(StatusCodes.Status501NotImplemented);
     }
 

@@ -9,10 +9,10 @@ public class ByTransportAccesibilityFilter : IFilterable
     private readonly string userAddress;
     public ByTransportAccesibilityFilter(string userAddress)
     {
-        this.userAddress = userAddress;
+       this.userAddress = userAddress;
     }
-    public IEnumerable<Tout> Filter<Tout>(IQueryable<Shop> query, IEnumerable<string> ingredientsToBuy) where Tout : DataBase
+    public IEnumerable<ShopData> Filter(IQueryable<Shop> query, IEnumerable<string> ingredientsToBuy)
     {
-        return Enumerable.Empty<Tout>();
+        throw new NotImplementedException();
     }
 }
