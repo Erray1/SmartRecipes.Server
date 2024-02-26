@@ -2,7 +2,7 @@
 
 public static class ShopsFilters
 {
-    public static IFilterable GetFromString(ShopsFilterOptions options)
+    public static IFilterable CreateNew(ShopsFilterOptions options)
     {
         switch (options.Filter)
         {

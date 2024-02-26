@@ -6,9 +6,9 @@ namespace SmartRecipes.Server.Repos.Filters.Shops.LINQExtensions;
 
 public static partial class LINQExtensionsShops
 {
-    public static IEnumerable<ShopData> ToShopDataWithFilter(this IQueryable<Shop> shopQuery, IEnumerable<string> ingredientsToBuy, IFilterable filter)
+    public static IEnumerable<ShopData> ToShopDataWithFilter(this IQueryable<Shop> shopQuery, IEnumerable<string> ingredientsToBuy, ShopsFilterOptions options)
     {
-        return filter.Filter<ShopData>(shopQuery, ingredientsToBuy);
+        return ShopsFilters.CreateNew(options).Filter(shopQuery, ingredientsToBuy);
     }
     
 }

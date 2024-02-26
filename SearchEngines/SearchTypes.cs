@@ -1,8 +1,10 @@
 ﻿namespace SmartRecipes.Server.SearchEngines;
 
-public enum SearchTypes
+public enum SearchProperties
 {
     Name,
+    NameAndCategory,
     Description,
+    DescriptionAndCategory,
     NameAndDescription
 }

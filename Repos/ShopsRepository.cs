@@ -32,7 +32,7 @@ public sealed class ShopsRepository : IShopsRepository
                 .Select(e => e.ID)
                 .Union(notPresentIngredientIds)
                 .Count() != 0)
-             .ToShopDataWithFilter(notPresentIngredientIds!, ShopsFilters.GetFromString(new ShopsFilterOptions() { Filter = shopsFilter, UserAddress = userAddress}))
+             .ToShopDataWithFilter(notPresentIngredientIds!, new ShopsFilterOptions() { Filter = shopsFilter, UserAddress = userAddress})
              .ToList();
              
         return new()

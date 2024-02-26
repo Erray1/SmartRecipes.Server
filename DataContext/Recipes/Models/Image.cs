@@ -9,4 +9,5 @@ public sealed class Image : EntityModelBase
     public Recipe Recipe { get; set; } = null!;
     public byte[] ImageData { get; set; }
     public string ImageName { get; set; }
+    public string ImageURL { get; set; }
 }
