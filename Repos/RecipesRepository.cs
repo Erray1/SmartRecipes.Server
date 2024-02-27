@@ -119,7 +119,7 @@ public sealed class RecipesRepository : IRecipesRepository
     public RecipeListDto<RecipePreviewData> SearchRecipesPaged(int itemsPerPage, int currentPage, string searchString)
     {
         var recipesSelected = searchEngine
-            .Search(db.Recipes, SearchProperties.Name, searchString.Split(" "))
+            .Search(SearchProperties.Name, searchString.Split(" "))
             .Skip((currentPage - 1) * itemsPerPage)
             .Take(itemsPerPage);
 
