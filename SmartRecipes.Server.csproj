@@ -23,4 +23,16 @@
     <Folder Include="DataContext\Migrations\Recipes\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\fonts\Minecraft Rus NEW.otf" />
+    <None Include="wwwroot\fonts\PressStart2P.ttf" />
+    <None Include="wwwroot\img\8_march.jpeg" />
+    <None Include="wwwroot\img\account.png" />
+    <None Include="wwwroot\img\book.png" />
+    <None Include="wwwroot\img\bookmark.png" />
+    <None Include="wwwroot\img\log-in.png" />
+    <None Include="wwwroot\img\search.png" />
+    <None Include="wwwroot\styles.css" />
+  </ItemGroup>
+
 </Project>
