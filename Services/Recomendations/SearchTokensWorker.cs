@@ -1,31 +1,40 @@
-﻿using SmartRecipes.Server.DataContext.Recipes.Models;
+﻿using SmartRecipes.Server.DataContext.Recipes;
+using System.Reflection;
 using SmartRecipes.Server.SearchEngines;
 using SmartRecipes.Server.Services.Recomendations.Utilities;
 
 namespace SmartRecipes.Server.Services.Recomendations;
 
-public static class SearchTokensWorker
+public class SearchTokensWorker
 {
-    public static List<string> GetUniqueTokensOrdered(IEnumerable<Recipe> recipes, SearchProperties searchProperty)
+    private readonly RecipesContext db;
+    public SearchTokensWorker(RecipesContext db)
     {
-        var tokensGetter = SearchTokensGetters.CreateNew(searchProperty);
-        var tokensPopularityAccumulator = new Dictionary<string, int>();
-        for (int i = 0; i < recipes.Count(); i++)
-        {
-            var tokens = tokensGetter.GetTokens(recipes.ElementAt(i));
-            for (int j = 0; j < tokens.Count(); j++)
-            {
-                if (tokensPopularityAccumulator.TryGetValue(tokens.ElementAt(j), out _))
-                {
-                    tokensPopularityAccumulator[tokens.ElementAt(j)]++;
-                }
-                tokensPopularityAccumulator[tokens.ElementAt(j)] = 1;
-            }
-        }
-        return tokensPopularityAccumulator
-            .OrderByDescending(x => x.Value)
+        this.db = db;
+    }
+    public List<string> GetUniqueTokensOrdered(RecipesInteractedByUser recipes, SearchProperties searchProperty)
+    {
+        ISearchTokensGetter tokensGetter = SearchTokensGetters.CreateNew(searchProperty)!;
+
+        var preferences = calculateTokensPreferencesSorted(recipes, tokensGetter);
+        int minimalPreference = calculateMinimalTokensPreference(preferences, true);
+
+        return preferences
+            .Where(x => x.Value >= minimalPreference)
             .Select(x => x.Key)
             .ToList();
+        
+    }
+
+    private Dictionary<string, int> calculateTokensPreferencesSorted(RecipesInteractedByUser recipes, ISearchTokensGetter tokensGetter)
+    {
+        Dictionary<string, int> recipesPreferences = new();
+        throw new NotImplementedException();
+	}
+
+    private int calculateMinimalTokensPreference(Dictionary<string, int> preferences, bool isSorted)
+    {
+        throw new NotImplementedException();
     }
 }
 

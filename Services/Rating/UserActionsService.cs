@@ -6,25 +6,18 @@ using SmartRecipes.Server.HTTPModels.Rating;
 
 namespace SmartRecipes.Server.Services.Rating;
 
-public class RatingService
+public class UserActionService
 {
     private readonly RecipesContext db;
     private readonly UserManager<User> userManager;
-    public RatingService(RecipesContext db, UserManager<User> userManager)
+
+	public UserActionService(RecipesContext db, UserManager<User> userManager)
     {
         this.db = db;
         this.userManager = userManager;
     }
-    public async Task<(int, RatingResult)> RateAsync(string recipeId, string? userId, RatingModel model)
+    public async Task<(int, RatingResult)> SaveRateAsync(string recipeId, string userId, RatingModel model)
     {
-        if (userId is null) {
-            return (StatusCodes.Status511NetworkAuthenticationRequired, new()
-            {
-                IsSuccesful = false,
-                Errors = new() { "Пользователь не авторизован" }
-            });
-        }
-
         Recipe? recipeFound = await db.Recipes.FindAsync(recipeId);
         User userFound = (await userManager.FindByIdAsync(userId))!;
         if (recipeFound is null)
@@ -60,10 +53,10 @@ public class RatingService
                 break;
         }
 
-        int affectedRecipe = await db.SaveChangesAsync();
+        bool affectedRecipe = (await db.SaveChangesAsync()) == 1;
         bool affectedUser = (await userManager.UpdateAsync(userFound)).Succeeded;
 
-        if (!affectedUser || affectedRecipe == 0)
+        if (!affectedUser || !affectedRecipe)
         {
             return (StatusCodes.Status500InternalServerError, new()
             {
@@ -77,4 +70,20 @@ public class RatingService
             IsSuccesful = true
         });
     }
+
+    public async Task<bool> SaveVisitAsync(string recipeId, string userId)
+    {
+		Recipe? recipeFound = await db.Recipes.FindAsync(recipeId);
+		User userFound = (await userManager.FindByIdAsync(userId))!;
+
+        if (recipeFound is null) return false;
+
+        recipeFound.TimesVisited++;
+        userFound.LastVisitedRecipesIDs.Add(recipeFound.ID);
+
+        bool affectedRecipes = (await db.SaveChangesAsync()) == 1;
+        bool affectedUsers = (await userManager.UpdateAsync(userFound)).Succeeded;
+
+        return affectedRecipes && affectedUsers;
+	}
 }

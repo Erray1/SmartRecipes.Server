@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SmartRecipes.Server.DataContext.Recipes;
 using SmartRecipes.Server.DataContext.Recipes.Models;
 using System.Linq.Expressions;
 using System.Text;
@@ -7,6 +8,13 @@ namespace SmartRecipes.Server.SearchEngines;
 
 public class SimpleSearch : ISearchable
 {
+
+    private readonly RecipesContext db;
+
+    public SimpleSearch(RecipesContext db)
+    {
+        this.db = db;
+    }
     private static IEnumerable<string> getSearchedValues(Recipe recipe, SearchProperties searchPreperty)
     {
         switch (searchPreperty)
@@ -16,7 +24,7 @@ public class SimpleSearch : ISearchable
             case SearchProperties.Description:
                 return recipe.RecipeDescription.Split(" ");
             case SearchProperties.NameAndDescription:
-                return (recipe.RecipeName + recipe.RecipeDescription).Split(" ");
+                return (recipe.RecipeName + " " + recipe.RecipeDescription).Split(" ");
             default:
                 throw new ArgumentException("Неверный searchType");
         };
@@ -27,10 +35,9 @@ public class SimpleSearch : ISearchable
         return getSearchedValues(recipe, searchProperty).Intersect(searchTokens).Count();
     }
 
-    public IQueryable<Recipe> Search(DbSet<Recipe> recipes, SearchProperties searchProperty, IEnumerable<string> searchTokens)
+    public IQueryable<Recipe> Search(SearchProperties searchProperty, IEnumerable<string> searchTokens)
     {
-        var a = recipes.Select(x => getSearchedValues(x, searchProperty));
-        return recipes
+        return db.Recipes
             .Where(x => getSearchedValues(x, searchProperty)
                 .Intersect(searchTokens)
                 .Count() >=

@@ -20,13 +20,9 @@ public sealed class RecomendationsService
     }
     public async Task<RecipeListDto<RecipePreviewData>> GetRecomendationsPagedAsync(string userId, int itemsPerPage, int currentPage)
     {
-        var user = await userManager.FindByIdAsync(userId);
-        var recipesVisited = user!.VisitedRecipesIDs;
-        var recipesLiked = user!.LikedRecipesIDs;
+        User user = (await userManager.FindByIdAsync(userId))!;
 
-        var idsStripped = recipesVisited.Concat(recipesLiked);
-
-        var data = await maker.GetRecomendatonsQuery(idsStripped)
+        var data = await maker.GetRecomendationsQuery(user)
             .Skip((currentPage - 1) * itemsPerPage)
             .Take(itemsPerPage)
             .ToListAsync();
