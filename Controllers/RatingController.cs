@@ -8,23 +8,24 @@ using System.Security.Claims;
 namespace SmartRecipes.Server.Controllers;
 [Route("api/[controller]")]
 [ApiController]
+[Authorize]
 public class RatingController : ControllerBase
 {
-    private readonly RatingService ratingService;
-    public RatingController(RatingService rating)
+    private readonly UserActionService actionService;
+    
+    public RatingController(UserActionService actions)
     {
-        ratingService = rating;
+        actionService = actions;
     }
     [HttpPatch("{recipeId}")]
-    [Authorize]
     [ProducesResponseType(204)]
     [ProducesResponseType(400)]
     [ProducesResponseType(404)]
     [ProducesResponseType(500)]
     public async Task<IActionResult> RateRecipe(string recipeId, [FromBody] RatingModel model)
     {
-        string? userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-        (int responseCode, RatingResult result) = await ratingService.RateAsync(recipeId, userId, model);
+        string? userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value!;
+        (int responseCode, RatingResult result) = await actionService.SaveRateAsync(recipeId, userId, model);
         switch (responseCode)
         {
             case StatusCodes.Status204NoContent: return NoContent();

@@ -16,4 +16,13 @@ public sealed class Recipe : EntityModelBase
     public Dictionary<string, int> Rating { get; set; } = new() { { "likes", 0 }, { "dislikes", 0 } };
     public float TimeToCook { get; set; }
     public int TimesVisited { get; set; } = 0;
+	public int TimesLiked { get; set; } = 0;
+	public int TimesDisliked { get; set; } = 0;
+
+	public Recipe()
+    {
+        ID = "";
+        RecipeName = "";
+        RecipeDescription = "";
+    }
 }

@@ -5,5 +5,5 @@ namespace SmartRecipes.Server.SearchEngines;
 
 public interface ISearchable
 {
-    public IQueryable<Recipe> Search(DbSet<Recipe> recipes, SearchProperties searchType, IEnumerable<string> searchTokens);
+    public IQueryable<Recipe> Search(SearchProperties searchType, IEnumerable<string> searchTokens);
 }

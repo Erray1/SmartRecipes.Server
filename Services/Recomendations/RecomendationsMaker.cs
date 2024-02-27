@@ -1,23 +1,24 @@
 ﻿using SmartRecipes.Server.DataContext.Recipes;
 using SmartRecipes.Server.DataContext.Recipes.Models;
+using SmartRecipes.Server.DataContext.Users.Models;
 using SmartRecipes.Server.SearchEngines;
+using SmartRecipes.Server.Services.Recomendations.Utilities;
 
 namespace SmartRecipes.Server.Services.Recomendations;
 
 public sealed class RecomendationsMaker
 {
-    private readonly RecipesContext db;
     private readonly ISearchable searchEngine;
-    public RecomendationsMaker(RecipesContext db, ISearchable searchEngine)
+    private readonly SearchTokensWorker searchTokensWorker;
+    public RecomendationsMaker(ISearchable searchEngine, SearchTokensWorker searchTokensWorker)
     {
+        this.searchTokensWorker = searchTokensWorker;
         this.searchEngine = searchEngine;
-        this.db = db;
     }
-    public IQueryable<Recipe> GetRecomendatonsQuery(IEnumerable<string> recipeIds)
+    public IQueryable<Recipe> GetRecomendationsQuery(User user)
     {
-        var recipes = recipeIds.Select(x => db.Recipes.Find(x) ?? new Recipe());
-        var uniqueTokens = SearchTokensWorker.GetUniqueTokensOrdered(recipes, SearchProperties.Name);
-        var recipesSearched = searchEngine.Search(db.Recipes, SearchProperties.Name, uniqueTokens);
+        var uniqueTokens = searchTokensWorker.GetUniqueTokensOrdered(RecipesInteractedByUser.GetFromUser(user), SearchProperties.Name);
+        var recipesSearched = searchEngine.Search(SearchProperties.Name, uniqueTokens);
 
         return recipesSearched;
     }

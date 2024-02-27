@@ -4,6 +4,7 @@ using SmartRecipes.Server.DataContext.Recipes;
 using SmartRecipes.Server.DTO.Recipes;
 using SmartRecipes.Server.Repos.Utilities;
 using SmartRecipes.Server.SearchEngines;
+using SmartRecipes.Server.Services.Rating;
 
 namespace SmartRecipes.Server.Repos;
 
@@ -17,14 +18,16 @@ public sealed class RecipesRepository : IRecipesRepository
         this.searchEngine = searchEngine;
     }
 
-    public async Task<RecipeListDto<RecipePreviewData>> GetPopularRecipesPagedAsync(int itemsPerPage, int currentPage, string? period)
+    public async Task<RecipeListDto<RecipePreviewData>> GetPopularRecipesPagedAsync(int itemsPerPage, int currentPage)
     {
-        var recipesSelected = await db.Recipes
-            .Where(x => x.CreationTime > CreationPeriodWorker.GetBorder(period))
+        var recipesSelected = await db.Recipes  
             .OrderByDescending(x => x.TimesVisited)
+            .ThenByDescending(x => x.TimesLiked)
+            .ThenBy(x => x.TimesDisliked)
             .Skip(itemsPerPage)
             .Take((currentPage - 1) * itemsPerPage)
             .ToListAsync();
+
         if (recipesSelected is null || recipesSelected.Count() == 0)
         {
             return new()
@@ -53,8 +56,6 @@ public sealed class RecipesRepository : IRecipesRepository
                 Content = new() { }
             };
         }
-
-        recipeFound.TimesVisited++;
         int affected = await db.SaveChangesAsync();
         if (affected == 0)
         {
@@ -96,7 +97,7 @@ public sealed class RecipesRepository : IRecipesRepository
     public RecipeListDto<RecipeShortenedData> SearchFirstRecipes(int itemsCount, string searchString)
     {
         var recipesSelected = searchEngine
-            .Search(db.Recipes, SearchProperties.Name, searchString.Split(" "))
+            .Search(SearchProperties.Name, searchString.Split(" "))
             .Take(itemsCount);
 
         if (recipesSelected is null || recipesSelected.Count() == 0)
