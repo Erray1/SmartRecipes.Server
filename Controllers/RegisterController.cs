@@ -9,7 +9,7 @@ namespace SmartRecipes.Server.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class RegisterController : ControllerBase
+public sealed class RegisterController : ControllerBase
 {
     private readonly UserManager<User> userManager;
     public RegisterController(UserManager<User> userManager)

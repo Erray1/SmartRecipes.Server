@@ -8,9 +8,9 @@ namespace SmartRecipes.Server.Services.Recomendations;
 
 public sealed class RecomendationsMaker
 {
-    private readonly ISearchable searchEngine;
+    private readonly ISearchEngine searchEngine;
     private readonly SearchTokensWorker searchTokensWorker;
-    public RecomendationsMaker(ISearchable searchEngine, SearchTokensWorker searchTokensWorker)
+    public RecomendationsMaker(SimpleLargeInputSearch searchEngine, SearchTokensWorker searchTokensWorker)
     {
         this.searchTokensWorker = searchTokensWorker;
         this.searchEngine = searchEngine;

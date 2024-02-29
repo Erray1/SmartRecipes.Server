@@ -11,7 +11,7 @@ using SmartRecipes.Server.HTTPModels.Accounts;
 namespace SmartRecipes.Server.Controllers;
 [Route("api/[controller]")]
 [ApiController]
-public class LoginController : ControllerBase
+public sealed class LoginController : ControllerBase
 {
     private readonly IConfiguration config;
     private readonly SignInManager<User> signInManager;

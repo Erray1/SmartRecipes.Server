@@ -4,5 +4,5 @@ namespace SmartRecipes.Server.Services.Recomendations.Utilities;
 
 public interface ISearchTokensGetter
 {
-    public IEnumerable<string> GetTokens(Recipe recipe);
+    public IEnumerable<string> GetTokens(Recipe? recipe);
 }

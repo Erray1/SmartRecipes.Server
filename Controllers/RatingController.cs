@@ -9,7 +9,7 @@ namespace SmartRecipes.Server.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 [Authorize]
-public class RatingController : ControllerBase
+public sealed class RatingController : ControllerBase
 {
     private readonly UserActionService actionService;
     

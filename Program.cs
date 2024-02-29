@@ -21,8 +21,12 @@ builder.Services.AddRazorComponents()
 builder.Services.AddRecipesContext(builder.Configuration);
 builder.Services.AddUsersContext(builder.Configuration);
 builder.Services.AddRepositories();
-builder.Services.AddScoped<ISearchable, SimpleSearch>();
+
+builder.Services.AddScoped<SimpleStrictSearch>();
+builder.Services.AddScoped<SimpleLargeInputSearch>();
+
 builder.Services.AddScoped<UserActionService>();
+
 builder.Services.AddScoped<RecomendationsService>();
 builder.Services.AddScoped<RecomendationsMaker>();
 builder.Services.AddScoped<SearchTokensWorker>();
