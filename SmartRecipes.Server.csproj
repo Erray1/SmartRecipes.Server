@@ -29,6 +29,7 @@
 
   <ItemGroup>
     <Folder Include="DataContext\Migrations\Recipes\" />
+    <Folder Include="wwwroot\img\recipes\" />
   </ItemGroup>
 
   <ItemGroup>

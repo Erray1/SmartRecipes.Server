@@ -15,7 +15,7 @@ public sealed class ShopsRepository : IShopsRepository
     {
         this.db = db;
     }
-    public async Task<ShopsDto> GetShopsDataForAsync(string recipeID, IEnumerable<string> notPresentIngredientIds, string? shopsFilter, string userAddress)
+    public async Task<ShopsDto> GetShopsDataForAsync(string recipeID, IEnumerable<string> ingredientsToBuy, string? shopsFilter, string userAddress)
     {
         Recipe? recipeFound = await db.Recipes.FindAsync(recipeID);
         if (recipeFound is null) {
@@ -28,11 +28,11 @@ public sealed class ShopsRepository : IShopsRepository
         }
 
         var shopData = db.Shops
-            .Where(e => e.AvailableIngredients
-                .Select(e => e.ID)
-                .Union(notPresentIngredientIds)
-                .Count() != 0)
-             .ToShopDataWithFilter(notPresentIngredientIds!, new ShopsFilterOptions() { Filter = shopsFilter, UserAddress = userAddress})
+            //.Where(e => e.AvailableIngredients
+            //    .Select(e => e.ID)
+            //    .Union(ingredientsToBuy)
+            //    .Count() != 0)
+             .ToShopDataWithFilter(ingredientsToBuy, new ShopsFilterOptions() { Filter = shopsFilter, UserAddress = userAddress})
              .ToList();
              
         return new()

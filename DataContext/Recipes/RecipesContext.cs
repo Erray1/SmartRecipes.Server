@@ -35,6 +35,7 @@ public class RecipesContext : DbContext
         modelBuilder.Entity<Category>()
             .HasMany(e => e.RecipesWhereUsed)
             .WithOne(e => e.Category);
+
         modelBuilder.Entity<Category>()
             .Property(e => e.CategoryName)
             .HasMaxLength(30);
@@ -44,11 +45,7 @@ public class RecipesContext : DbContext
 
         modelBuilder.Entity<Image>()
             .HasKey(e => e.ID);
-        modelBuilder.Entity<Image>()
-            .Property(e => e.ImageData)
-            .HasColumnType("BLOB")
-            //  .HasConversion()
-            .IsRequired();
+        
 
         // Ingredients
 
@@ -56,7 +53,6 @@ public class RecipesContext : DbContext
             .HasKey(e => e.ID);
         modelBuilder.Entity<Ingredient>()
             .Property(e => e.IngredientName)
-            .HasColumnType("TEXT")
             .HasMaxLength(30);
 
         // Shops
@@ -73,12 +69,10 @@ public class RecipesContext : DbContext
         modelBuilder.Entity<Shop>()
             .Property(e => e.Name)
             .HasMaxLength(30)
-            .HasColumnType("TEXT")
             .IsRequired();
         modelBuilder.Entity<Shop>()
             .Property(e => e.Address)
             .HasMaxLength(100)
-            .HasColumnType("TEXT")
             .IsRequired();
 
         // Recipes
@@ -98,8 +92,7 @@ public class RecipesContext : DbContext
 
         modelBuilder.Entity<Recipe>()
             .HasOne(e => e.RecipeImage)
-            .WithOne(e => e.Recipe)
-            .HasForeignKey<Image>();
+            .WithOne(e => e.RecipeWhereUsed);
 
         modelBuilder.Entity<Recipe>()
             .Property(e => e.Rating)
