@@ -9,7 +9,7 @@ namespace SmartRecipes.Server.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class CreateController : ControllerBase
+public sealed class CreateController : ControllerBase
 {
     private readonly IDomainDataAdder domainDataAdder;
     public CreateController(IDomainDataAdder domainDataAdder)

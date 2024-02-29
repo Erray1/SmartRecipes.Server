@@ -12,7 +12,7 @@ namespace SmartRecipes.Server.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class RecipesController : ControllerBase
+public sealed class RecipesController : ControllerBase
 {
     private readonly IRecipesRepository repo;
     public RecipesController(IRecipesRepository repo)

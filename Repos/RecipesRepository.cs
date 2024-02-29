@@ -11,8 +11,8 @@ namespace SmartRecipes.Server.Repos;
 public sealed class RecipesRepository : IRecipesRepository
 {
     private readonly RecipesContext db;
-    private readonly ISearchable searchEngine;
-    public RecipesRepository(RecipesContext db, ISearchable searchEngine)
+    private readonly ISearchEngine searchEngine;
+    public RecipesRepository(RecipesContext db, SimpleStrictSearch searchEngine)
     {
         this.db = db;
         this.searchEngine = searchEngine;

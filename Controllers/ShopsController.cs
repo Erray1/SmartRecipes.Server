@@ -6,7 +6,7 @@ namespace SmartRecipes.Server.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class ShopsController : ControllerBase
+public sealed class ShopsController : ControllerBase
 {
     private readonly IShopsRepository repo;
     public ShopsController(IShopsRepository repo)

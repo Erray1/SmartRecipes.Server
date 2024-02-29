@@ -15,7 +15,7 @@ public sealed class ShopsRepository : IShopsRepository
     {
         this.db = db;
     }
-    public async Task<ShopsDto> GetShopsDataForAsync(string recipeID, IEnumerable<string> notPresentIngredientIds, string? shopsFilter, string? userAddress)
+    public async Task<ShopsDto> GetShopsDataForAsync(string recipeID, IEnumerable<string> notPresentIngredientIds, string? shopsFilter, string userAddress)
     {
         Recipe? recipeFound = await db.Recipes.FindAsync(recipeID);
         if (recipeFound is null) {
