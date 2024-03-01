@@ -9,7 +9,7 @@ public static class RecipesDTOMapper
         return new RecipeShortenedData
         {
             ID = recipe.ID,
-            Image = recipe.RecipeImage.ImageData,
+            Image = recipe.RecipeImage.ImageURL,
             Name = recipe.RecipeName
         };
     }
@@ -18,7 +18,7 @@ public static class RecipesDTOMapper
         return new RecipePreviewData
         {
             ID = recipe.ID,
-            Image = recipe.RecipeImage.ImageData,
+            Image = recipe.RecipeImage.ImageURL,
             IngedientsCount = recipe.Ingredients.Count(),
             Name = recipe.RecipeName,
             Rating = recipe.Rating,
@@ -30,7 +30,7 @@ public static class RecipesDTOMapper
         return new RecipeData
         {
             ID = recipe.ID,
-            Image = recipe.RecipeImage.ImageData,
+            Image = recipe.RecipeImage.ImageURL,
             IngedientsCount = recipe.Ingredients.Count(),
             Name = recipe.RecipeName,
             Rating = recipe.Rating,
@@ -40,7 +40,7 @@ public static class RecipesDTOMapper
             {
                 ID = x.ID,
                 Name = x.IngredientName,
-                Amount = x.IngredientAmounts.Single(e => e.RecipeID == recipe.ID).Amount
+                Amount = x.AmountsForRecipes.Single(e => e.RecipeID == recipe.ID).Amount
             }).ToList()
         };
     }

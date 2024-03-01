@@ -8,4 +8,8 @@ public sealed class Image : EntityModelBase
     public string ID { get; set; }
     public Recipe RecipeWhereUsed { get; set; } = null!;
     public string ImageURL { get; set; }
+    public Image()
+    {
+        
+    }
 }

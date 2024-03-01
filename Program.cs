@@ -5,6 +5,8 @@ using SmartRecipes.Server.Services.Rating;
 using SmartRecipes.Server.Services.Recomendations;
 using SmartRecipes.Server.BuilderExtensions;
 using SmartRecipes.Server.Components;
+using SmartRecipes.Server.Repos.Filters.Shops.Filters;
+using SmartRecipes.Server.Services.PathCalculator;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,6 +29,9 @@ builder.Services.AddScoped<SimpleLargeInputSearch>();
 
 builder.Services.AddScoped<UserActionService>();
 
+builder.Services.AddScoped<IShopsFilter, ShopsFilterV1>();
+builder.Services.AddScoped<IPathFinder, RandomPathFinderService>();
+
 builder.Services.AddScoped<RecomendationsService>();
 builder.Services.AddScoped<RecomendationsMaker>();
 builder.Services.AddScoped<SearchTokensWorker>();
@@ -42,7 +47,6 @@ if (app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Error", createScopeForErrors: true);
     app.UseSwagger();
     app.UseSwaggerUI();
-    app.UseHsts();
 }
 
 app.UseHttpsRedirection();

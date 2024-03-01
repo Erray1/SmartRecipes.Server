@@ -5,15 +5,18 @@ using SmartRecipes.Server.DTO.Shops;
 using SmartRecipes.Server.Repos.Calculators;
 using SmartRecipes.Server.Repos.Filters.Shops.Filters;
 using SmartRecipes.Server.Repos.Filters.Shops.LINQExtensions;
+using SmartRecipes.Server.Services.PathCalculator;
 
 namespace SmartRecipes.Server.Repos;
 
 public sealed class ShopsRepository : IShopsRepository
 {
     private readonly RecipesContext db;
-    public ShopsRepository(RecipesContext db)
+    private readonly IShopsFilter filter;
+    public ShopsRepository(RecipesContext db, IShopsFilter filter)
     {
         this.db = db;
+        this.filter = filter;
     }
     public async Task<ShopsDto> GetShopsDataForAsync(string recipeID, IEnumerable<string> ingredientsToBuy, string? shopsFilter, string userAddress)
     {
@@ -27,13 +30,10 @@ public sealed class ShopsRepository : IShopsRepository
             };
         }
 
-        var shopData = db.Shops
-            //.Where(e => e.AvailableIngredients
-            //    .Select(e => e.ID)
-            //    .Union(ingredientsToBuy)
-            //    .Count() != 0)
-             .ToShopDataWithFilter(ingredientsToBuy, new ShopsFilterOptions() { Filter = shopsFilter, UserAddress = userAddress})
-             .ToList();
+        var shopData = filter.Filter(db.Shops,
+            ingredientsToBuy,
+            new ShopsFilterOptions() { FilterString = shopsFilter, UserAddress = userAddress })
+            .ToList();
              
         return new()
         {

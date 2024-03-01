@@ -11,7 +11,11 @@ public sealed class Ingredient : EntityModelBase
     public string IngredientName { get; set; } = string.Empty;
     public int Price { get; set; }
     public ICollection<Shop> ShopsWhereAvailable { get; set; } = new List<Shop>();
-    public ICollection<IngredientPriceForShop> IngredientPrices { get; set; } = new List<IngredientPriceForShop>();
-    public ICollection<Recipe> RecipesWhereUsed { get; } = new List<Recipe>();
-    public ICollection<IngredientAmountForRecipe> IngredientAmounts { get; set; } = new List<IngredientAmountForRecipe>();
+    public ICollection<IngredientPriceForShop> PriceInShops { get; set; } = new List<IngredientPriceForShop>();
+    public ICollection<Recipe> RecipesWhereUsed { get; set; } = new List<Recipe>();
+    public ICollection<IngredientAmountForRecipe> AmountsForRecipes {get; set; } = new List<IngredientAmountForRecipe>();
+    public Ingredient()
+    {
+        
+    }
 }

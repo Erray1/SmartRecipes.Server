@@ -5,7 +5,7 @@ using SmartRecipes.Server.DTO.Shops;
 
 namespace SmartRecipes.Server.Repos.Filters.Shops.Filters;
 
-public interface IFilterable
+public interface IShopsFilter
 {
-    public IEnumerable<ShopData> Filter(IQueryable<Shop> query, IEnumerable<string> ingredientsToBuy);
+    public IEnumerable<ShopData> Filter(IQueryable<Shop> query, IEnumerable<string> ingredientsToBuy, ShopsFilterOptions options);
 }

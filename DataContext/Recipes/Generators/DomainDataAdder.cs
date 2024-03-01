@@ -24,12 +24,16 @@ public sealed class DomainDataAdder : IDomainDataAdder
         return affected == 1 ? (true, null) : (false, "Ошибка добавления");
     }
 
+    public Task<(bool, string?)> AddImage(CreateImageModel model)
+    {
+        throw new NotImplementedException();
+    }
+
     public async Task<(bool, string?)> AddIngredient(CreateIngredientModel model)
     {
         Ingredient newEntity = new()
         {
             IngredientName = model.Name,
-            Price = model.Price
         };
         await db.AddAsync(newEntity);
         int affected = await db.SaveChangesAsync();
@@ -41,7 +45,7 @@ public sealed class DomainDataAdder : IDomainDataAdder
         Category? foundCategory = await db.Categories.SingleOrDefaultAsync(e => e.CategoryName == model.CategoryName);
         if (foundCategory is null) { return (false, "Не найдена категория с таким именем"); }
 
-        Image? foundImage = await db.Images.SingleOrDefaultAsync(e => e.ImageName == model.ImageName);
+        Image? foundImage = await db.Images.SingleOrDefaultAsync(e => e.ImageURL == model.ImageName);
         if (foundImage is null) { return (false, "Не найден файл картинки с таким именем"); }
 
         Recipe newRecipe = new()

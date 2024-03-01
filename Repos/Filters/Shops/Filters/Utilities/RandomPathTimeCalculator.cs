@@ -1,9 +1,21 @@
 ﻿namespace SmartRecipes.Server.Repos.Filters.Shops.Filters.Utilities;
 
-public static class RandomPathTimeCalculator
+public class RandomPathTimeCalculator
 {
-    public static int GetPathTimeInMunutes(string startAddress, string destinationAddress)
+    private Dictionary<string, int> calculatedPaths { get; set; } = new();
+    private int getPathTimeInMunutes(string startAddress, string shopAddress)
     {
-        return new Random().Next(5, 30);
+        var time = new Random().Next(5, 30);
+        calculatedPaths[shopAddress] = time;
+        return time;
+    }
+    public int GetExistingOrCalculateTime(string startAddress, string shopAddress)
+    {
+        if (calculatedPaths.ContainsKey(shopAddress)) return calculatedPaths[shopAddress];
+        return getPathTimeInMunutes(startAddress, shopAddress);
+    }
+    public int GetExistingTime(string shopAddress)
+    {
+        return calculatedPaths[shopAddress];
     }
 }

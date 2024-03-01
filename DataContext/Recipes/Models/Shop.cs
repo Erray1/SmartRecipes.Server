@@ -10,4 +10,8 @@ public sealed class Shop : EntityModelBase
     public string Address { get; set; } = string.Empty;
     public ICollection<Ingredient> AvailableIngredients { get; set; } = new List<Ingredient>();
     public ICollection<IngredientPriceForShop> IngredientPrices { get; set; } = new List<IngredientPriceForShop>();
+    public Shop()
+    {
+        
+    }
 }

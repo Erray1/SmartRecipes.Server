@@ -8,4 +8,8 @@ public sealed class Category : EntityModelBase
     public string ID { get; set; }
     public string CategoryName { get; set; } = string.Empty;
     public ICollection<Recipe> RecipesWhereUsed { get; } = new List<Recipe>();
+    public Category()
+    {
+        
+    }
 }
