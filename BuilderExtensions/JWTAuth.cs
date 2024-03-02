@@ -4,7 +4,7 @@ using System.Text;
 
 namespace SmartRecipes.Server.BuilderExtensions;
 
-public static class JWTAuth
+public static class JWTAuthBuilderExtensions
 {
     public static IServiceCollection AddJWTAuthentificationAndAuthorization(this IServiceCollection services, IConfiguration config)
     {
