@@ -202,6 +202,42 @@ main[b-d2hneckk4p] {
     }
 }
 /* _content/SmartRecipes.Server/Components/Pages/RazorComponents/Navbar.razor.rz.scp.css */
-.this-is-navbar-styles[b-nwmkpqej2f] {
-	
+.header[b-nwmkpqej2f] {
+	display: flex;
+	position: absolute;
+	background: #9ACD32;
+	left: 0;
+	right: 0;
+	top: 0;
+	height: 5vh;
+	color: #006400;
+	justify-content: space-between;
+	font-family: 'Press Start 2P';
+}
+
+a[b-nwmkpqej2f] {
+	text-decoration: none;
+	color: #006400;
+}
+
+.nav_home[b-nwmkpqej2f] {
+	margin: 8px auto;
+	padding: 0 auto;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.nav[b-nwmkpqej2f] {
+	margin: 1.5vh auto;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 2vh;
+}
+
+.scale[b-nwmkpqej2f] {
+	transition: 0.4s;
+}
+
+.scale:hover[b-nwmkpqej2f] {
+	transform: scale(1.2);
 }

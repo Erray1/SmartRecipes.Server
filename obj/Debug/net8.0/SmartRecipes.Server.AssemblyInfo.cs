@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SmartRecipes.Server")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7a34465bfbb848f7e0c71c16249bdba8bd306648")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0fd1dd27669c64d65800b30a362c76dd2051f35c")]
 [assembly: System.Reflection.AssemblyProductAttribute("SmartRecipes.Server")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SmartRecipes.Server")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

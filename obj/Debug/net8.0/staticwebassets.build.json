@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "TtJV2qH1UfVP0+hiE/5Ri6YpGG4GJXu0/BLceJuV2Fo=",
+  "Hash": "rCHl1Zi/Ud9fkDaKAqDh8fp35FOrEwisiA2vUc5oJnI=",
   "Source": "SmartRecipes.Server",
   "BasePath": "_content/SmartRecipes.Server",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "SmartRecipes.Server\\wwwroot",
       "Source": "SmartRecipes.Server",
-      "ContentRoot": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\annys\\Source\\Repos\\SmartRecipes.Server\\wwwroot\\",
       "BasePath": "_content/SmartRecipes.Server",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\obj\\Debug\\net8.0\\scopedcss\\bundle\\SmartRecipes.Server.styles.css",
+      "Identity": "C:\\Users\\annys\\Source\\Repos\\SmartRecipes.Server\\obj\\Debug\\net8.0\\scopedcss\\bundle\\SmartRecipes.Server.styles.css",
       "SourceId": "SmartRecipes.Server",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\annys\\Source\\Repos\\SmartRecipes.Server\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/SmartRecipes.Server",
       "RelativePath": "SmartRecipes.Server.styles.css",
       "AssetKind": "All",
@@ -33,13 +33,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\obj\\Debug\\net8.0\\scopedcss\\bundle\\SmartRecipes.Server.styles.css"
+      "OriginalItemSpec": "C:\\Users\\annys\\Source\\Repos\\SmartRecipes.Server\\obj\\Debug\\net8.0\\scopedcss\\bundle\\SmartRecipes.Server.styles.css"
     },
     {
-      "Identity": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SmartRecipes.Server.bundle.scp.css",
+      "Identity": "C:\\Users\\annys\\Source\\Repos\\SmartRecipes.Server\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SmartRecipes.Server.bundle.scp.css",
       "SourceId": "SmartRecipes.Server",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\annys\\Source\\Repos\\SmartRecipes.Server\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/SmartRecipes.Server",
       "RelativePath": "SmartRecipes.Server.bundle.scp.css",
       "AssetKind": "All",
@@ -52,13 +52,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SmartRecipes.Server.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\annys\\Source\\Repos\\SmartRecipes.Server\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SmartRecipes.Server.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\wwwroot\\app.css",
+      "Identity": "C:\\Users\\annys\\Source\\Repos\\SmartRecipes.Server\\wwwroot\\app.css",
       "SourceId": "SmartRecipes.Server",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\annys\\Source\\Repos\\SmartRecipes.Server\\wwwroot\\",
       "BasePath": "_content/SmartRecipes.Server",
       "RelativePath": "app.css",
       "AssetKind": "All",
@@ -74,10 +74,10 @@
       "OriginalItemSpec": "wwwroot\\app.css"
     },
     {
-      "Identity": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\Users\\annys\\Source\\Repos\\SmartRecipes.Server\\wwwroot\\bootstrap\\bootstrap.min.css",
       "SourceId": "SmartRecipes.Server",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\annys\\Source\\Repos\\SmartRecipes.Server\\wwwroot\\",
       "BasePath": "_content/SmartRecipes.Server",
       "RelativePath": "bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -93,10 +93,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\annys\\Source\\Repos\\SmartRecipes.Server\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "SmartRecipes.Server",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\annys\\Source\\Repos\\SmartRecipes.Server\\wwwroot\\",
       "BasePath": "_content/SmartRecipes.Server",
       "RelativePath": "bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -112,10 +112,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\wwwroot\\favicon.png",
+      "Identity": "C:\\Users\\annys\\Source\\Repos\\SmartRecipes.Server\\wwwroot\\favicon.png",
       "SourceId": "SmartRecipes.Server",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\annys\\Source\\Repos\\SmartRecipes.Server\\wwwroot\\",
       "BasePath": "_content/SmartRecipes.Server",
       "RelativePath": "favicon.png",
       "AssetKind": "All",
@@ -131,12 +131,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.png"
     },
     {
-      "Identity": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\wwwroot\\fonts\\Minecraft Rus NEW.otf",
+      "Identity": "C:\\Users\\annys\\Source\\Repos\\SmartRecipes.Server\\wwwroot\\fonts\\MinecraftRusNEW.otf",
       "SourceId": "SmartRecipes.Server",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\annys\\Source\\Repos\\SmartRecipes.Server\\wwwroot\\",
       "BasePath": "_content/SmartRecipes.Server",
-      "RelativePath": "fonts/Minecraft Rus NEW.otf",
+      "RelativePath": "fonts/MinecraftRusNEW.otf",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -147,13 +147,13 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\fonts\\Minecraft Rus NEW.otf"
+      "OriginalItemSpec": "wwwroot\\fonts\\MinecraftRusNEW.otf"
     },
     {
-      "Identity": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\wwwroot\\fonts\\PressStart2P.ttf",
+      "Identity": "C:\\Users\\annys\\Source\\Repos\\SmartRecipes.Server\\wwwroot\\fonts\\PressStart2P.ttf",
       "SourceId": "SmartRecipes.Server",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\annys\\Source\\Repos\\SmartRecipes.Server\\wwwroot\\",
       "BasePath": "_content/SmartRecipes.Server",
       "RelativePath": "fonts/PressStart2P.ttf",
       "AssetKind": "All",
@@ -169,10 +169,10 @@
       "OriginalItemSpec": "wwwroot\\fonts\\PressStart2P.ttf"
     },
     {
-      "Identity": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\wwwroot\\img\\8_march.jpeg",
+      "Identity": "C:\\Users\\annys\\Source\\Repos\\SmartRecipes.Server\\wwwroot\\img\\8_march.jpeg",
       "SourceId": "SmartRecipes.Server",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\annys\\Source\\Repos\\SmartRecipes.Server\\wwwroot\\",
       "BasePath": "_content/SmartRecipes.Server",
       "RelativePath": "img/8_march.jpeg",
       "AssetKind": "All",
@@ -188,10 +188,10 @@
       "OriginalItemSpec": "wwwroot\\img\\8_march.jpeg"
     },
     {
-      "Identity": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\wwwroot\\img\\account.png",
+      "Identity": "C:\\Users\\annys\\Source\\Repos\\SmartRecipes.Server\\wwwroot\\img\\account.png",
       "SourceId": "SmartRecipes.Server",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\annys\\Source\\Repos\\SmartRecipes.Server\\wwwroot\\",
       "BasePath": "_content/SmartRecipes.Server",
       "RelativePath": "img/account.png",
       "AssetKind": "All",
@@ -207,10 +207,10 @@
       "OriginalItemSpec": "wwwroot\\img\\account.png"
     },
     {
-      "Identity": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\wwwroot\\img\\book.png",
+      "Identity": "C:\\Users\\annys\\Source\\Repos\\SmartRecipes.Server\\wwwroot\\img\\book.png",
       "SourceId": "SmartRecipes.Server",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\annys\\Source\\Repos\\SmartRecipes.Server\\wwwroot\\",
       "BasePath": "_content/SmartRecipes.Server",
       "RelativePath": "img/book.png",
       "AssetKind": "All",
@@ -226,10 +226,10 @@
       "OriginalItemSpec": "wwwroot\\img\\book.png"
     },
     {
-      "Identity": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\wwwroot\\img\\bookmark.png",
+      "Identity": "C:\\Users\\annys\\Source\\Repos\\SmartRecipes.Server\\wwwroot\\img\\bookmark.png",
       "SourceId": "SmartRecipes.Server",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\annys\\Source\\Repos\\SmartRecipes.Server\\wwwroot\\",
       "BasePath": "_content/SmartRecipes.Server",
       "RelativePath": "img/bookmark.png",
       "AssetKind": "All",
@@ -245,10 +245,10 @@
       "OriginalItemSpec": "wwwroot\\img\\bookmark.png"
     },
     {
-      "Identity": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\wwwroot\\img\\log-in.png",
+      "Identity": "C:\\Users\\annys\\Source\\Repos\\SmartRecipes.Server\\wwwroot\\img\\log-in.png",
       "SourceId": "SmartRecipes.Server",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\annys\\Source\\Repos\\SmartRecipes.Server\\wwwroot\\",
       "BasePath": "_content/SmartRecipes.Server",
       "RelativePath": "img/log-in.png",
       "AssetKind": "All",
@@ -264,10 +264,29 @@
       "OriginalItemSpec": "wwwroot\\img\\log-in.png"
     },
     {
-      "Identity": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\wwwroot\\img\\search.png",
+      "Identity": "C:\\Users\\annys\\Source\\Repos\\SmartRecipes.Server\\wwwroot\\img\\logo.svg",
       "SourceId": "SmartRecipes.Server",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\annys\\Source\\Repos\\SmartRecipes.Server\\wwwroot\\",
+      "BasePath": "_content/SmartRecipes.Server",
+      "RelativePath": "img/logo.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\logo.svg"
+    },
+    {
+      "Identity": "C:\\Users\\annys\\Source\\Repos\\SmartRecipes.Server\\wwwroot\\img\\search.png",
+      "SourceId": "SmartRecipes.Server",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\annys\\Source\\Repos\\SmartRecipes.Server\\wwwroot\\",
       "BasePath": "_content/SmartRecipes.Server",
       "RelativePath": "img/search.png",
       "AssetKind": "All",
@@ -283,10 +302,10 @@
       "OriginalItemSpec": "wwwroot\\img\\search.png"
     },
     {
-      "Identity": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\wwwroot\\styles.css",
+      "Identity": "C:\\Users\\annys\\Source\\Repos\\SmartRecipes.Server\\wwwroot\\styles.css",
       "SourceId": "SmartRecipes.Server",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\annys\\Source\\Repos\\SmartRecipes.Server\\wwwroot\\",
       "BasePath": "_content/SmartRecipes.Server",
       "RelativePath": "styles.css",
       "AssetKind": "All",

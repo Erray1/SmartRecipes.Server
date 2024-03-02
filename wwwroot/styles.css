@@ -26,18 +26,13 @@
 }
 
 @font-face {
-    font-family: 'Ruslan Display';
-    src: url(RuslanDisplay.ttf);
-}
-
-@font-face {
     font-family: 'Press Start 2P';
-    src: url(PressStart2P.ttf);
+    src: url(fonts/PressStart2P.ttf);
 }
 
 @font-face {
     font-family: 'Minecraft';
-    src: url(Minecraft\ Rus\ NEW.otf);
+    src: url(fonts/MinecraftRusNEW.otf);
 }
 
 a {
@@ -193,6 +188,16 @@ input:focus {outline:none!important;}
     font-family: 'Minecraft';
     font-size: 0.8em;
     text-align: start;
+}
+
+.reactions {
+    max-width: 20vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 50px;
+    margin-left: 25px;
 }
 
 .scale {

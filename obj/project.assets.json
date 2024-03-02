@@ -4446,19 +4446,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Erray\\.nuget\\packages\\": {}
+    "C:\\Users\\annys\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Erray\\Source\\Repos\\SmartRecipes.Server\\SmartRecipes.Server.csproj",
+      "projectUniqueName": "C:\\Users\\annys\\Source\\Repos\\SmartRecipes.Server\\SmartRecipes.Server.csproj",
       "projectName": "SmartRecipes.Server",
-      "projectPath": "C:\\Users\\Erray\\Source\\Repos\\SmartRecipes.Server\\SmartRecipes.Server.csproj",
-      "packagesPath": "C:\\Users\\Erray\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Erray\\Source\\Repos\\SmartRecipes.Server\\obj\\",
+      "projectPath": "C:\\Users\\annys\\Source\\Repos\\SmartRecipes.Server\\SmartRecipes.Server.csproj",
+      "packagesPath": "C:\\Users\\annys\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\annys\\Source\\Repos\\SmartRecipes.Server\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Erray\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\annys\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4466,6 +4471,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

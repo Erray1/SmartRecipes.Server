@@ -200,7 +200,7 @@
     <None Include="obj\project.nuget.cache" />
     <None Include="obj\SmartRecipes.Server.csproj.nuget.g.props" />
     <None Include="obj\SmartRecipes.Server.csproj.nuget.g.targets" />
-    <None Include="wwwroot\fonts\Minecraft Rus NEW.otf" />
+    <None Include="wwwroot\fonts\MinecraftRusNEW.otf" />
     <None Include="wwwroot\fonts\PressStart2P.ttf" />
     <None Include="wwwroot\img\8_march.jpeg" />
     <None Include="wwwroot\img\account.png" />
