@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\SmartRecipes.Server.csproj": {}
+    "C:\\Users\\Antоnio\\source\\repos\\SmartRecipes.Server\\SmartRecipes.Server.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\SmartRecipes.Server.csproj": {
+    "C:\\Users\\Antоnio\\source\\repos\\SmartRecipes.Server\\SmartRecipes.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\SmartRecipes.Server.csproj",
+        "projectUniqueName": "C:\\Users\\Antоnio\\source\\repos\\SmartRecipes.Server\\SmartRecipes.Server.csproj",
         "projectName": "SmartRecipes.Server",
-        "projectPath": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\SmartRecipes.Server.csproj",
-        "packagesPath": "C:\\Users\\Erray\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\obj\\",
+        "projectPath": "C:\\Users\\Antоnio\\source\\repos\\SmartRecipes.Server\\SmartRecipes.Server.csproj",
+        "packagesPath": "C:\\Users\\Antоnio\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Antоnio\\source\\repos\\SmartRecipes.Server\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Erray\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Antоnio\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

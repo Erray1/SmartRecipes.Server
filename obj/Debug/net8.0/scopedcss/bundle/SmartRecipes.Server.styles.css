@@ -201,6 +201,45 @@ main[b-d2hneckk4p] {
         overflow-y: auto;
     }
 }
+/* _content/SmartRecipes.Server/Components/Pages/RazorComponents/Card.razor.rz.scp.css */
+.card[b-aij0tuw7vl] {
+	background: #e9e9e9;
+	width: 450px;
+	padding: 2vh 2vw 2vh;
+	display: flex;
+	flex-direction: row;
+	border-radius: 0.8em;
+	margin: 20px 0px 20px;
+}
+
+.images[b-aij0tuw7vl] {
+	border-radius: 0.8em;
+}
+
+.text[b-aij0tuw7vl] {
+	margin: 0.5vh 25px;
+	font-family: 'Minecraft';
+	font-size: 0.8em;
+	text-align: start;
+}
+
+.card-title[b-aij0tuw7vl] {
+	margin: 0px 25px 10px;
+	font-size: 1.25em;
+	font-family: 'Press Start 2P';
+}
+
+.scale[b-aij0tuw7vl] {
+    transition: 0.4s;
+}
+
+.scale:hover[b-aij0tuw7vl] {
+    transform: scale(1.2);
+}
+
+.long[b-aij0tuw7vl] {
+    width: 900px;
+}
 /* _content/SmartRecipes.Server/Components/Pages/RazorComponents/Navbar.razor.rz.scp.css */
 .this-is-navbar-styles[b-nwmkpqej2f] {
 	

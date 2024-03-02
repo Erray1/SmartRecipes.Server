@@ -1,59 +1,59 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SmartRecipes.Server.bundle.scp.css",
+      "Id": "C:\\Users\\Antоnio\\source\\repos\\SmartRecipes.Server\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SmartRecipes.Server.bundle.scp.css",
       "PackagePath": "staticwebassets\\SmartRecipes.Server.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\wwwroot\\app.css",
+      "Id": "C:\\Users\\Antоnio\\source\\repos\\SmartRecipes.Server\\wwwroot\\app.css",
       "PackagePath": "staticwebassets\\app.css"
     },
     {
-      "Id": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Id": "C:\\Users\\Antоnio\\source\\repos\\SmartRecipes.Server\\wwwroot\\bootstrap\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Id": "C:\\Users\\Antоnio\\source\\repos\\SmartRecipes.Server\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\wwwroot\\favicon.png",
+      "Id": "C:\\Users\\Antоnio\\source\\repos\\SmartRecipes.Server\\wwwroot\\favicon.png",
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
-      "Id": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\wwwroot\\fonts\\Minecraft Rus NEW.otf",
+      "Id": "C:\\Users\\Antоnio\\source\\repos\\SmartRecipes.Server\\wwwroot\\fonts\\Minecraft Rus NEW.otf",
       "PackagePath": "staticwebassets\\fonts\\Minecraft Rus NEW.otf"
     },
     {
-      "Id": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\wwwroot\\fonts\\PressStart2P.ttf",
+      "Id": "C:\\Users\\Antоnio\\source\\repos\\SmartRecipes.Server\\wwwroot\\fonts\\PressStart2P.ttf",
       "PackagePath": "staticwebassets\\fonts\\PressStart2P.ttf"
     },
     {
-      "Id": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\wwwroot\\img\\8_march.jpeg",
+      "Id": "C:\\Users\\Antоnio\\source\\repos\\SmartRecipes.Server\\wwwroot\\img\\8_march.jpeg",
       "PackagePath": "staticwebassets\\img\\8_march.jpeg"
     },
     {
-      "Id": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\wwwroot\\img\\account.png",
+      "Id": "C:\\Users\\Antоnio\\source\\repos\\SmartRecipes.Server\\wwwroot\\img\\account.png",
       "PackagePath": "staticwebassets\\img\\account.png"
     },
     {
-      "Id": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\wwwroot\\img\\book.png",
+      "Id": "C:\\Users\\Antоnio\\source\\repos\\SmartRecipes.Server\\wwwroot\\img\\book.png",
       "PackagePath": "staticwebassets\\img\\book.png"
     },
     {
-      "Id": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\wwwroot\\img\\bookmark.png",
+      "Id": "C:\\Users\\Antоnio\\source\\repos\\SmartRecipes.Server\\wwwroot\\img\\bookmark.png",
       "PackagePath": "staticwebassets\\img\\bookmark.png"
     },
     {
-      "Id": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\wwwroot\\img\\log-in.png",
+      "Id": "C:\\Users\\Antоnio\\source\\repos\\SmartRecipes.Server\\wwwroot\\img\\log-in.png",
       "PackagePath": "staticwebassets\\img\\log-in.png"
     },
     {
-      "Id": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\wwwroot\\img\\search.png",
+      "Id": "C:\\Users\\Antоnio\\source\\repos\\SmartRecipes.Server\\wwwroot\\img\\search.png",
       "PackagePath": "staticwebassets\\img\\search.png"
     },
     {
-      "Id": "C:\\Users\\Erray\\source\\repos\\SmartRecipes.Server\\wwwroot\\styles.css",
+      "Id": "C:\\Users\\Antоnio\\source\\repos\\SmartRecipes.Server\\wwwroot\\styles.css",
       "PackagePath": "staticwebassets\\styles.css"
     },
     {
