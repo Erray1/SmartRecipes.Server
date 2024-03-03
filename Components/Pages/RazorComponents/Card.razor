@@ -3,8 +3,8 @@
 @using SmartRecipes.Client.Application.Utilities
 <!--Важно прописать namespace-->
 
-<NavLink href="@($"recipes/{Model.ID}")" class="scale">
-    <div class="card @cardType">
+<NavLink href="@($"recipes/{Model.ID}")">
+    <div class="card @cardType scale">
         <img class="images" src="@Model.Image" width="120px" height="120px">
         <div>
             <p class="card-title">@Model.Name</p>

@@ -1,16 +1,18 @@
 ﻿@page "/home"
+@namespace SmartRecipes.Server.Components.Pages.RazorComponents
+@using SmartRecipes.Client.Application.Utilities
 
 <PageTitle>Home</PageTitle>
 
 <div class="body">
     <div class="main">
-        <SmartRecipes.Server.Components.Pages.RazorComponents.SearchBar />
+        <SearchBar />
         <p class="pop-recepies-title">Популярные рецепты:</p>
         <div class="pop-recepies">
-            <Card CardType="Client.Application.Utilities.CardTypes.Small" Model="new()"></Card>
-            <Card CardType="Client.Application.Utilities.CardTypes.Small" Model="new()"></Card>
-            <Card CardType="Client.Application.Utilities.CardTypes.Small" Model="new()"></Card>
-            <Card CardType="Client.Application.Utilities.CardTypes.Small" Model="new()"></Card>
+            <Card CardType="CardTypes.Small" Model="new()"></Card>
+            <Card CardType="CardTypes.Small" Model="new()"></Card>
+            <Card CardType="CardTypes.Small" Model="new()"></Card>
+            <Card CardType="CardTypes.Small" Model="new()"></Card>
         </div>
     </div>
 </div>
