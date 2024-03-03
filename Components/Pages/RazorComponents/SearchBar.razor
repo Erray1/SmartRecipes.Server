@@ -1,9 +1,9 @@
 ﻿@using HTTPModels.Search
 
-<EditForm Model="Model" OnSubmit="Submit" class="search">
-    <InputText @bind-Value="Model.SearchString" class="search-input"></InputText>
-    <button type="submit" class="search-container">
-        <img src="search 1.svg" width="25px" height="25px">
+<EditForm class="search" Model="Model" OnSubmit="Submit">
+    <InputText class="search-input" @bind-Value="Model.SearchString"></InputText>
+    <button class="search-container" type="submit">
+        <img src="img/search.png" width="25px" height="25px">
     </button>
 </EditForm>
 
