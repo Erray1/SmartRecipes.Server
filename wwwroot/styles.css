@@ -70,6 +70,7 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border: none;
 }
 
 .search input[type=text] {
@@ -104,11 +105,12 @@ input:focus {outline:none!important;}
 }
 
 .pop-recepies {
-    max-width: 75vw;
+    max-width: 80vw;
     vertical-align: middle;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .card {

@@ -8,6 +8,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border: none;
 }
 
 .search input[type=text] {
@@ -17,6 +18,7 @@
     border: none;
     font-size: 1em;
     font-family: 'Minecraft';
+    border: none;
 }
 
 input:focus {
