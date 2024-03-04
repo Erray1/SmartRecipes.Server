@@ -1,4 +1,6 @@
 ﻿@page "/popular"
+@namespace SmartRecipes.Server.Components.Pages.RazorComponents
+@using SmartRecipes.Client.Application.Utilities
 
 <PageTitle>Popular</PageTitle>
 
@@ -6,10 +8,10 @@
     <div class="main">
         <p class="pop-recepies-title">Лучшие блюда за последний !!!</p>
         <div class="pop-recepies">
-            <div class="card long">
-                <p class="card-title">Название блюда</p>
-                <p class="text">8 ингредиентов | 1 час</p>
-            </div>
+            <Card CardType="CardTypes.Wide" Model="new()" />
+            <Card CardType="CardTypes.Wide" Model="new()" />
+            <Card CardType="CardTypes.Wide" Model="new()" />
+            <Card CardType="CardTypes.Wide" Model="new()" />
         </div>
     </div>
 </div>
